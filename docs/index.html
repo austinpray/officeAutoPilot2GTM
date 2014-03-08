@@ -42,33 +42,90 @@
 
     <section>
         <article><h1 id="officeautopilot2gtm-js">OfficeAutoPilot2GTM.js</h1>
-<h2 id="wut">wut</h2>
-<p>So, you have</p>
+<h2 id="what">what</h2>
+<p>So, you have an e-commerce system that uses OfficeAutoPilot. It has two elements:</p>
+<ul>
+<li>A &quot;shopping cart&quot; page where the user inputs their information</li>
+<li>A &quot;thank you&quot; page where the user is redirected after a successful transaction</li>
+</ul>
+<p>OfficeAutoPilot2GTM.js allows you to set up what you want to send to Google Tag Manger
+on the &quot;shopping cart page&quot; and send the data to the thank you page if and only if
+they are redirected following a successful transaction</p>
+<p>:heart: Austin Pray<br><em>Lead Developer</em><br><strong>CoreLaunch LLC</strong></p>
 <h2 id="installation">installation</h2>
 <p>(Note: all these dependencies are located in the <code>dist/</code> folder)</p>
 <ol>
 <li>make sure jQuery is included in your asset pipeline</li>
 <li>make sure jQuery.cookie is included <strong>AFTER</strong> jQuery</li>
-<li>verify that the Google Tag Manager code in included in the header</li>
-<li>include <code>corelaunch-OfficeAutoPilot2GTM.js</code> in your asset pipeline <strong>LAST</strong></li>
+<li>verify that the Google Tag Manager code in included <strong>immediately after the opening of the body tag</strong></li>
+<li>include <code>dist/corelaunch-OfficeAutoPilot2GTM.js</code> in your asset pipeline <strong>LAST</strong></li>
 </ol>
 <h2 id="dependencies">dependencies</h2>
+<p>(Note: copies of these dependencies are located in the <code>dist/</code> folder)</p>
 <ul>
 <li><a href="https://github.com/jquery/jquery">jquery</a>: ~2.1.0</li>
 <li><a href="https://github.com/carhartl/jquery-cookie">jquery-cookie</a>: ~1.4.0</li>
 </ul>
+<h2 id="-_-the-documentation-_-">༼ つ ◕_◕ ༽つ  THE DOCUMENTATION ༼ つ ◕_◕ ༽つ</h2>
+<h3 id="-read-the-documentation-https-rawgithub-com-corelaunch-officeautopilot2gtm-master-docs-index-html-"><a href="https://rawgithub.com/Corelaunch/officeAutoPilot2GTM/master/docs/index.html"><strong>Read the documentation</strong></a></h3>
+<p><a href="docs/">documentation source</a></p>
 <h2 id="usage">usage</h2>
-<h3 id="all-pages">All pages</h3>
-<pre><code class="lang-html">&lt;!-- inside the &lt;head&gt; tag --&gt;</code></pre>
 <h3 id="page-with-the-order-form">Page with the order form</h3>
-<pre><code class="lang-html">&lt;!-- copy paste the order from from OAP/Ontraport here --&gt;
+<p>You need to pass an array of product objects to the <code>orderForm</code> method.
+A product object should follow this general schema and should not deviate:</p>
+<pre><code class="lang-js">{
+  'name': 'Test Product', // { String } Product Name
+  'sku': '111', // { String } Product ID
+  'category': 'ONLINE', // { String } Product Category
+  'price': '$50.75', // { String } USD currency formatted string with a decimal point
+  'quantity': 1 // { Integar } Quantity of product
+}</code></pre>
+<p>so it follows that an array of such objects would look like</p>
+<pre><code class="lang-js">[
+  {
+    'name': 'Test Product',
+    'sku': '111',
+    'category': 'ONLINE',
+    'price': '$50.75',
+    'quantity': 1
+  },
+  {
+    'name': 'Mock Product',
+    'sku': '112221',
+    'category': 'ONLINE',
+    'price': '$1000.00',
+    'quantity': 1
+  }
+]</code></pre>
+<p>For you copy-paste lovers out there:</p>
+<pre><code class="lang-html">&lt;!-- include our custom library --&gt;
+&lt;script src=&quot;corelaunch-OfficeAutoPilot2GTM.js&quot;&gt;&lt;/script&gt;
+&lt;!-- run the form page function --&gt;
 &lt;script&gt;
-
+  officeAutoPilot2GTM.orderForm([
+    {
+      'name': 'Test Product',
+      'sku': '111',
+      'category': 'ONLINE',
+      'price': '$50.75',
+      'quantity': 1
+    },
+    {
+      'name': 'Mock Product',
+      'sku': '112221',
+      'category': 'ONLINE',
+      'price': '$1000.00',
+      'quantity': 1
+    }
+  ]);
 &lt;/script&gt;</code></pre>
+<h4 id="page-with">Page with</h4>
 <h3 id="thank-you-page">Thank you page</h3>
-<pre><code class="lang-html">&lt;!-- whatever you want --&gt;
+<pre><code class="lang-html">&lt;!-- include our custom library --&gt;
+&lt;script src=&quot;corelaunch-OfficeAutoPilot2GTM.js&quot;&gt;&lt;/script&gt;
+
 &lt;script&gt;
-  cl-oap2gtm.
+  officeAutoPilot2GTM.send();
 &lt;/script&gt;</code></pre>
 <h2 id="examples">examples</h2>
 <p>Fully implemented examples are available in this repository:</p>
@@ -76,13 +133,15 @@
 <li><a href="index.html">index.html</a> - the page where the &quot;cart&quot; is displayed</li>
 <li><a href="thankyou.html">thankyou.html</a> - the page where the user is redirected when the transaction is successful</li>
 </ul>
-<h2 id="developement">developement</h2>
+<h2 id="development">development</h2>
+<p><em>For hackers only</em></p>
 <p>To install dependencies:</p>
 <pre><code class="lang-bash">npm install &amp;&amp; bower install</code></pre>
 <p>To compile <code>dist/</code>:</p>
 <pre><code class="lang-bash">gulp</code></pre>
 <p>To build the entire project with documentation:</p>
-<pre><code class="lang-bash">gulp build</code></pre></article>
+<pre><code class="lang-bash">gulp build</code></pre>
+<p><strong>| (• ◡•)|  (❍ᴥ❍ʋ) </strong></p></article>
     </section>
 
 
@@ -99,7 +158,7 @@
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha4</a> on Fri Mar 07 2014 19:50:28 GMT-0600 (CST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha4</a> on Fri Mar 07 2014 20:27:56 GMT-0600 (CST)
 </footer>
 
 <script> prettyPrint(); </script>
