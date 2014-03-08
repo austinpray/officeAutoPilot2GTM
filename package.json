@@ -1,0 +1,23 @@
+{
+  "name": "OfficeAutoPilot2GTM.js",
+  "version": "0.1.0",
+  "description": "capture OAP ecommerce junk and send that biz to GTM",
+  "main": "corelaunch-OfficeAutoPilot2GTM.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/4b6f6e24b92fa8d13d92.git"
+  },
+  "author": "Austin Pray",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "~3.5.5",
+    "gulp-concat": "~2.1.7",
+    "gulp-connect": "~1.0.7",
+    "gulp-clean": "~0.2.4",
+    "jsdoc": "~3.3.0-alpha4",
+    "gulp-uglify": "~0.2.1"
+  }
+}

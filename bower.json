@@ -1,0 +1,22 @@
+{
+  "name": "OfficeAutoPilot2GTM.js",
+  "version": "0.1.0",
+  "authors": [
+    "Austin Pray <austin@austinpray.com>"
+  ],
+  "description": "capture OAP ecommerce junk and send that biz to GTM",
+  "main": "corelaunch-OfficeAutoPilot2GTM.js",
+  "license": "ISC",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.0",
+    "jquery-cookie": "~1.4.0"
+  }
+}
