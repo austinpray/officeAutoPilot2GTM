@@ -73,7 +73,8 @@ so it follows that an array of such objects would look like
 ]
 ```
 
-For you copy-paste lovers out there:
+For you copy-paste lovers out there: include the following somewhere in the template after the
+dependencies have been included
 
 ```html
 <!-- include our custom library -->
@@ -99,9 +100,8 @@ For you copy-paste lovers out there:
 </script>
 ```
 
-#### Page with
-
 ### Thank you page
+Include this somewhere in the template after the dependencies have been included
 ```html
 <!-- include our custom library -->
 <script src="corelaunch-OfficeAutoPilot2GTM.js"></script>
