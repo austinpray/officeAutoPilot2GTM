@@ -1,4 +1,4 @@
-OfficeAutoPilot2GTM.js
+OfficeAutoPilot2GTM.js [![Build Status](https://travis-ci.org/Corelaunch/officeAutoPilot2GTM.svg?branch=master)](https://travis-ci.org/Corelaunch/officeAutoPilot2GTM)
 ===
 
 what
